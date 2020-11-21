@@ -11,5 +11,10 @@ lazy val root = (project in file("."))
     resolvers ++= Seq(
       "aws-glue-etl-artifacts" at "https://aws-glue-etl-artifacts.s3.amazonaws.com/release/"
     ),
-    libraryDependencies ++= etlDependencies
+    libraryDependencies ++= etlDependencies,
+    dependencyOverrides ++= Seq(
+      "com.fasterxml.jackson.core" % "jackson-core" % "2.6.7",
+      "com.fasterxml.jackson.core" % "jackson-databind" % "2.6.7",
+      "com.fasterxml.jackson.module" %% "jackson-module-scala" % "2.6.7.1",
+    )
   )
